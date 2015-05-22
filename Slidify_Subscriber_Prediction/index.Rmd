@@ -1,0 +1,60 @@
+---
+title       : Subscriber Prediction App
+subtitle    : Developing Data Products
+author      : rgavuliak
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## The Industry  
+  
+  
+- Publisher's face print circulation decline as everyone reads on the web  
+- Ad revenues for news sites are on a decline too as all the profits go to Google & Facebook  
+- Paid content though disliked by the end users and still in its infancy is one of the   solutions
+
+```{r dev.args = list(bg = 'transparent'),echo=FALSE}
+library(rCharts)
+library(knitr)
+print_data<-read.csv("newspaper_revenues.csv",sep=";",header=TRUE)
+#library(zoo)
+#data<-read.zoo("Circulation_by_age.csv",format="%Y",index.column="Year",sep=";",header=TRUE)
+#colnames(data)<-c("18-24","25-34","35-34","45-54","55-64","65+")
+#p1<-plot(data,xlab="Year",plot.type="single",ylab="% of age group reading print",ylim=c(0,100),col=c("red","blue","green","black","gray","purple"),main="Print Decline, by age",bg=NA ,yaxt="n")
+#legend("topright", colnames(data), bty = "n", col = 1:2,cex=0.5,fill=c("red","blue","green","black","gray","purple"))
+#axis(2,lab=paste(c(0,0.5,1)*100,"%"),at=c(0,50,100),cex.axis=1)
+r1<-rPlot(data$Print~data$Year,data=print_data)
+r1
+```
+---
+
+## The Trade-offs
+
+- Entering paid content is a challenge for every news organisation
+- The ad revenues are still substantial and losing it now may be too soon
+- The revenues from a paywall are hard to estimate without any prior data
+- New York Times succeeded, but most sites are not NYT
+
+---
+
+## The Solution
+
+- While there are ways to quantify the potential gains and losses either internally or through an external company, not all publishers are willing to make that investment
+- That's why we offer the first sanity check in form of this calculator
+- If the numbers that come out are of interest then let's talk...
+- If they aren't, well you just avoided wasting time, money and other resources you'd
+otherwise need to find out the hard way
+
+---
+
+## Notes
+
+- The Calculator is based on a regression model using data from many sites that already
+have a paywall
+- These are not the only factors that come into play, but it's a start...
+- It's actually one of my projects at work!
