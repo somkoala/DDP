@@ -14,22 +14,19 @@ knit        : slidify::knit2slides
 ## The Industry  
   
   
-- Publisher's face print circulation decline as everyone reads on the web  
+- Publisher's face print circulation and print ad revenues decline as everyone reads on the web  
 - Ad revenues for news sites are on a decline too as all the profits go to Google & Facebook  
 - Paid content though disliked by the end users and still in its infancy is one of the   solutions
 
-```{r dev.args = list(bg = 'transparent'),echo=FALSE}
-library(rCharts)
-library(knitr)
-print_data<-read.csv("newspaper_revenues.csv",sep=";",header=TRUE)
-#library(zoo)
-#data<-read.zoo("Circulation_by_age.csv",format="%Y",index.column="Year",sep=";",header=TRUE)
-#colnames(data)<-c("18-24","25-34","35-34","45-54","55-64","65+")
-#p1<-plot(data,xlab="Year",plot.type="single",ylab="% of age group reading print",ylim=c(0,100),col=c("red","blue","green","black","gray","purple"),main="Print Decline, by age",bg=NA ,yaxt="n")
-#legend("topright", colnames(data), bty = "n", col = 1:2,cex=0.5,fill=c("red","blue","green","black","gray","purple"))
-#axis(2,lab=paste(c(0,0.5,1)*100,"%"),at=c(0,50,100),cex.axis=1)
-r1<-rPlot(data$Print~data$Year,data=print_data)
-r1
+```{r nvd3_inline, results = 'asis', comment = NA, echo = FALSE}
+require(rCharts)
+require(knitr)
+require(rjson)
+print_data<-read.csv("newspaper_revenues.csv",sep=";",header=TRUE,check.names=FALSE)
+d1<-dPlot(x="Year",y="Print Advertising Revenues",data=print_data,type='line',ylab="Print Revenues")
+
+d1$show('inline', include_assets = TRUE, cdn = TRUE)
+cat("<style>.rChart {height: 400px;}</style>")
 ```
 ---
 

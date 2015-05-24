@@ -1,60 +1,6 @@
----
-title       : Subscriber Prediction App
-subtitle    : Developing Data Products
-author      : rgavuliak
-job         : 
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}
-knit        : slidify::knit2slides
----
-
-## The Industry  
-  
-  
-- Publisher's face print circulation and print ad revenues decline as everyone reads on the web  
-- Ad revenues for news sites are on a decline too as all the profits go to Google & Facebook  
-- Paid content though disliked by the end users and still in its infancy is one of the   solutions
-
-<script type='text/javascript' src=http://d3js.org/d3.v3.min.js></script>
-<script type='text/javascript' src=http://dimplejs.org/dist/dimple.v1.1.5.min.js></script> 
- <style>
-  .rChart {
-    display: block;
-    margin-left: auto; 
-    margin-right: auto;
-    width: 800px;
-    height: 400px;
-  }  
-  </style>
-<div id = 'chart1e1010bb339d' class = 'rChart dimple'></div>
 <script type="text/javascript">
-  var opts = {
- "dom": "chart1e1010bb339d",
-"width":    800,
-"height":    400,
-"xAxis": {
- "type": "addCategoryAxis",
-"showPercent": false 
-},
-"yAxis": {
- "type": "addMeasureAxis",
-"showPercent": false 
-},
-"zAxis": [],
-"colorAxis": [],
-"defaultColors": [],
-"layers": [],
-"legend": [],
-"x": "Year",
-"y": "Print Advertising Revenues",
-"type": "line",
-"ylab": "Print Revenues",
-"id": "chart1e1010bb339d" 
-},
-    data = [{"Year":2003,"Print Advertising Revenues":44939,"Online Advertising Revenues":1216,"Total Advertising Revenues":46155},{"Year":2004,"Print Advertising Revenues":46703,"Online Advertising Revenues":1541,"Total Advertising Revenues":48244},{"Year":2005,"Print Advertising Revenues":47408,"Online Advertising Revenues":2027,"Total Advertising Revenues":49435},{"Year":2006,"Print Advertising Revenues":46611,"Online Advertising Revenues":2664,"Total Advertising Revenues":49275},{"Year":2007,"Print Advertising Revenues":42209,"Online Advertising Revenues":3166,"Total Advertising Revenues":45375},{"Year":2008,"Print Advertising Revenues":34740,"Online Advertising Revenues":3109,"Total Advertising Revenues":37848},{"Year":2009,"Print Advertising Revenues":24821,"Online Advertising Revenues":2743,"Total Advertising Revenues":27564},{"Year":2010,"Print Advertising Revenues":22795,"Online Advertising Revenues":3042,"Total Advertising Revenues":25838},{"Year":2011,"Print Advertising Revenues":20692,"Online Advertising Revenues":3249,"Total Advertising Revenues":23941},{"Year":2012,"Print Advertising Revenues":18931,"Online Advertising Revenues":3370,"Total Advertising Revenues":22314}];
+  var opts = {{{ opts }}},
+    data = {{{ data }}};
   var svg = dimple.newSvg("#" + opts.id, opts.width, opts.height);
 
   //data = dimple.filterData(data, "Owner", ["Aperture", "Black Mesa"])
@@ -218,31 +164,3 @@ knit        : slidify::knit2slides
   myChart.draw();
 
 </script>
-<style>.rChart {height: 400px;}</style>
----
-
-## The Trade-offs
-
-- Entering paid content is a challenge for every news organisation
-- The ad revenues are still substantial and losing it now may be too soon
-- The revenues from a paywall are hard to estimate without any prior data
-- New York Times succeeded, but most sites are not NYT
-
----
-
-## The Solution
-
-- While there are ways to quantify the potential gains and losses either internally or through an external company, not all publishers are willing to make that investment
-- That's why we offer the first sanity check in form of this calculator
-- If the numbers that come out are of interest then let's talk...
-- If they aren't, well you just avoided wasting time, money and other resources you'd
-otherwise need to find out the hard way
-
----
-
-## Notes
-
-- The Calculator is based on a regression model using data from many sites that already
-have a paywall
-- These are not the only factors that come into play, but it's a start...
-- It's actually one of my projects at work!
